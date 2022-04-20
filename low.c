@@ -800,7 +800,7 @@ void UpdateAncestry(TSense sense, TAncestor particleID[])
 int ReadLog(FILE *logFile, TSense &sense, int &continueSlam) {
   int i, max;
   char line[4096];
-
+  fprintf(stderr,"Got here!\n");
   if (fgets(line, 4096, logFile) == NULL) {
     fprintf(stderr, "End of Log File.\n");
     continueSlam = 0;
@@ -987,17 +987,17 @@ void PrintMap(char *name, TAncestor *parent, int particles, double overlayX, dou
   for (y = lasty; y >= starty; y--) 
     for (x = startx; x <= lastx; x++) {
       if (map[x][y] == 254) 
-	fprintf(printFile, "%c%c%c", 255, 0, 0);
+	fprintf(printFile, "%c%c%c", 255, 0, 0); // #ff0000
       else if (map[x][y] == 253) 
-	fprintf(printFile, "%c%c%c", 0, 255, 200);
+	fprintf(printFile, "%c%c%c", 0, 255, 200); // #00ffc8
       else if (map[x][y] == 252) 
-	fprintf(printFile, "%c%c%c", 255, 55, 55);
+	fprintf(printFile, "%c%c%c", 255, 55, 55); // #ff3737
       else if (map[x][y] == 251) 
-	fprintf(printFile, "%c%c%c", 50, 150, 255);
+	fprintf(printFile, "%c%c%c", 50, 150, 255); // #3296ff
       else if (map[x][y] == 250) 
-	fprintf(printFile, "%c%c%c", 250, 200, 200);
+	fprintf(printFile, "%c%c%c", 250, 200, 200); // #fac8c8
       else if (map[x][y] == 0) 
-	fprintf(printFile, "%c%c%c", 100, 250, 100);
+	fprintf(printFile, "%c%c%c", 100, 250, 100); // #64fa64
       else
 	fprintf(printFile, "%c%c%c", map[x][y], map[x][y], map[x][y]);
     }

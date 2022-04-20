@@ -452,6 +452,7 @@ void LowUpdateGridSquare(int x, int y, double distance, int hit, int parentID)
   // of constant time access.
   if (lowMap[x][y] == NULL) {
     // Check to make sure there is still room left in the observation cache.
+    printf("Lowmap null\n");
     if (observationID >= AREA) 
       fprintf(stderr, "bRoll over!\n");
 
@@ -484,6 +485,7 @@ void LowUpdateGridSquare(int x, int y, double distance, int hit, int parentID)
   // We could have observations here, but this square hasn't been observed yet this iteration.
   // In that case, we need to build an entry into the observationArray for constant time access.
   else if (flagMap[x][y] == 0) 
+    printf("Square hasn't been observed yet this iteration\n");
     LowBuildObservation(x, y, 0);
 
   // Note where in the dynamic array of observations we need to look for this one particle's 
@@ -494,6 +496,7 @@ void LowUpdateGridSquare(int x, int y, double distance, int hit, int parentID)
   // new observation is merely an amendment to this data, and noone else is using it yet. Just 
   // alter the source directly
   if ((here != -1) && (lowMap[x][y]->array[here].ID == parentID)) {
+        printf("new observation is merely an amendment to this data\n");
     lowMap[x][y]->array[here].hits = lowMap[x][y]->array[here].hits + hit;
     lowMap[x][y]->array[here].distance = lowMap[x][y]->array[here].distance + distance;
   }
@@ -501,6 +504,7 @@ void LowUpdateGridSquare(int x, int y, double distance, int hit, int parentID)
   // Otherwise, we can corrupt the data for other particles.
   else {
     // We will be adding a new entry to the list- is there enough room?
+    printf("adding a new entry to the list- is there enough room?\n");
     if (lowMap[x][y]->size <= lowMap[x][y]->total) {
       LowResizeArray(lowMap[x][y], -71);
       if (lowMap[x][y]->total == 0) {

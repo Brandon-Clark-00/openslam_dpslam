@@ -197,7 +197,7 @@ int main (int argc, char *argv[])
   pthread_create(&slam_thread, (pthread_attr_t *) NULL, Slam, &x);
 
   fprintf(stderr, "*********** Main Loop (Movement) **********\n");
-
+  
 
   // This is the spot where code should be inserted to control the robot. You can go ahead and assume
   // that the robot is localizing and mapping.

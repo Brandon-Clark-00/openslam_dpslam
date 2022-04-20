@@ -25,7 +25,7 @@
 // This defines the number of grid squares per meter. 
 // All sensors are assumed to be measuring in meters, whereas all code uses a basic unit of grid squares. 
 // We use this constant for conversion.
-#define MAP_SCALE 35
+#define MAP_SCALE 10
 
 // Some useful macros
 #define SIGN(A) ((A) >= 0.0 ? (1.0) : (-1.0))

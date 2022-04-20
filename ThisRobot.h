@@ -22,7 +22,7 @@
 #include "basic.h"
 
 // The number of sensor readings for this robot (typically 181 for a laser range finder)
-#define SENSE_NUMBER 180
+#define SENSE_NUMBER 360
 // Turn radius of the robot in map squares.Since the "robot" is actually the sensor origin for the
 // purposes of this program, the turn radius is the displacement of the sensor from the robot's center
 // of rotation (assuming holonomic turns)

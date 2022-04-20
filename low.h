@@ -24,7 +24,7 @@
 // When using hierarchical SLAM, LOW_DURATION defines how many iterations of the low level are 
 // performed to form one iteration of the high level. Setting this value to ridiculously high 
 // values can essentially turn off the hierarchical feature.
-#define LOW_DURATION 40
+#define LOW_DURATION 10
 
 // The function to call only once before LowSlam is called, and initializes all values.
 void InitLowSlam();
